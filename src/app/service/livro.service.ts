@@ -14,9 +14,9 @@ export class LivroService {
   buscar(valorDigitado: string): Observable<Item[]>{
     const params = new HttpParams().append('q', valorDigitado);
     return this.http.get<LivrosResultado>(this.API, { params }).pipe(
-      tap(x => console.log('fluxo tap', x)),
+    //  tap(x => console.log('fluxo tap', x)),
       map(y => y.items),
-      tap(z => console.log('apos metodo', z))
+   //   tap(z => console.log('apos metodo', z))
     )
   }
 }

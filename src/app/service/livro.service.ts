@@ -11,12 +11,13 @@ export class LivroService {
 
   constructor(private http: HttpClient) { }
 
-  buscar(valorDigitado: string): Observable<Item[]>{
+  buscar(valorDigitado: string): Observable<LivrosResultado>{
     const params = new HttpParams().append('q', valorDigitado);
-    return this.http.get<LivrosResultado>(this.API, { params }).pipe(
+    return this.http.get<LivrosResultado>(this.API, { params })
+    //.pipe(
     //  tap(x => console.log('fluxo tap', x)),
-      map(y => y.items),
+    //  map(y => y.items ?? []),
    //   tap(z => console.log('apos metodo', z))
-    )
+    //)
   }
 }
